@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117758629-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-117758629-1');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Ethereum blockchain dice game powered by atmospheric noise. No account needed. Instant payouts.">
+    <meta name="keywords" content="ethereum dice,ethereum gambling,online dice game,win ether,ether dice,ether gambling,satoshi dice,crypto games,ethereum games">
+    <title>Cosmic Dice - Powered by Atmospheric Noise and the Ethereum Blockchain</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="cd.css">
+    <script type="text/javascript" src="web3.min.js"></script>
+    <script type="text/javascript" src="setup.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Cosmic Dice <sup>beta</sup></a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto custom-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#howitworks">How it works</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#latestnav">Latest</a>
+                </li>		  
+                <li class="nav-item">
+                    <a class="nav-link" href="#faq">FAQ</a>
+                </li>		  
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div id="myCarousel" class="carousel">  <!-- removed "slide" class -->
+
+        <!--
+        <div class="userBox">
+            <div id="coinbase" class="userDetails"></div>
+            <div id="userBal" class="userDetails"></div>
+        </div>
+        -->
+        
+        
+        <div class="site-lead">
+            <h1>Powered by atmospheric noise and the Ethereum blockchain</h1>
+            <br>
+            <h2>No account needed.  Instant Payouts.</h2>
+        </div>
+
+        <div class="carousel-inner">
+
+            
+            <!-- ----------------------Slide--------------------------- -->
+
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="carousel-caption d-md-block text-middle">
+                        <div id="error"></div>
+                        
+                        <!-- ------------ n=2 Game ------------ -->
+                        <div class="row featurette">
+                            <div class="col col-lg-12">
+                                <h2 class="gameHeader"><span class="winchance">50%</span> chance.  Win <span class="payout">1.5x</span> your bet if you guess correctly!</h2>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Your lucky number:</h3>    
+                                <input id="input2" class="lucknum" type="text" placeholder="1-2"></input>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Choose your bet:</h3>
+                                <button id="button2_1" class="btn btn-lg btn-play" data-inpid="input2" data-nval="2" value="0.01" onClick="buttonFunc(this.id)">0.01 ETH</button>
+                                <button id="button2_2" class="btn btn-lg btn-play" data-inpid="input2" data-nval="2" value="0.05" onClick="buttonFunc(this.id)">0.05 ETH</button>
+                                <button id="button2_3" class="btn btn-lg btn-play" data-inpid="input2" data-nval="2" value="0.10" onClick="buttonFunc(this.id)">0.10 ETH</button>
+                                <button id="button2_4" class="btn btn-lg btn-play" data-inpid="input2" data-nval="2" value="0.25" onClick="buttonFunc(this.id)">0.25 ETH</button>
+                                <button id="button2_5" class="btn btn-lg btn-play" data-inpid="input2" data-nval="2" value="0.50" onClick="buttonFunc(this.id)" hidden>0.50 ETH</button>
+                                <button id="button2_6" class="btn btn-lg btn-play" data-inpid="input2" data-nval="2" value="1.00" onClick="buttonFunc(this.id)" hidden>1.00 ETH</button>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Result:</h3>
+                                <div class="resultBox" id="resultBox2">
+                                    <div class="playPending" id="playPending2"></div>
+                                    <div class="playResult" id="playResult2"></div>
+                                    <div class="myProgress" id="myProgress2">
+                                        <div class="myBar" id="myBar2"></div>
+                                    </div>
+                                </div>
+                                <div class="belowResult">
+                                    <p class="pretxh" id="pretxh2"></p>
+                                    <a class="txh" id="txh2" target="_blank"></a>
+                                    <p class="resultText" id="resultText2"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ----------------------Slide--------------------------- -->
+
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="carousel-caption d-md-block text-middle">
+                        <div id="error"></div>
+                        
+                        <!-- ------------ n=6 Game ------------ -->
+                        <div class="row featurette">
+                            <div class="col col-lg-12">
+                                <h2 class="gameHeader"><span class="winchance">16.6%</span> chance.  Win <span class="payout">3x</span> your bet if you guess correctly!</h2>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Your lucky number:</h3>    
+                                <input id="input6" class="lucknum" type="text" placeholder="1-6"></input>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Choose your bet:</h3>
+                                <button id="button6_1" class="btn btn-lg btn-play" data-inpid="input6" data-nval="6" value="0.01" onClick="buttonFunc(this.id)">0.01 ETH</button>
+                                <button id="button6_2" class="btn btn-lg btn-play" data-inpid="input6" data-nval="6" value="0.05" onClick="buttonFunc(this.id)">0.05 ETH</button>
+                                <button id="button6_3" class="btn btn-lg btn-play" data-inpid="input6" data-nval="6" value="0.10" onClick="buttonFunc(this.id)">0.10 ETH</button>
+                                <button id="button6_4" class="btn btn-lg btn-play" data-inpid="input6" data-nval="6" value="0.25" onClick="buttonFunc(this.id)">0.25 ETH</button>
+                                <button id="button6_5" class="btn btn-lg btn-play" data-inpid="input6" data-nval="6" value="0.50" onClick="buttonFunc(this.id)" hidden>0.50 ETH</button>
+                                <button id="button6_6" class="btn btn-lg btn-play" data-inpid="input6" data-nval="6" value="1.00" onClick="buttonFunc(this.id)" hidden>1.00 ETH</button>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Result:</h3>
+                                <div class="resultBox" id="resultBox6">
+                                    <div class="playPending" id="playPending6"></div>
+                                    <div class="playResult" id="playResult6"></div>
+                                    <div class="myProgress" id="myProgress6">
+                                        <div class="myBar" id="myBar6"></div>
+                                    </div>
+                                </div>
+                                <div class="belowResult">
+                                    <p class="pretxh" id="pretxh6"></p>
+                                    <a class="txh" id="txh6" target="_blank"></a>
+                                    <p class="resultText" id="resultText6"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ----------------------Slide--------------------------- -->
+
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="carousel-caption d-md-block text-middle">
+                        <div id="error"></div>
+                        
+                        <!-- ------------ n=10 Game ------------ -->
+                        <div class="row featurette">
+                            <div class="col col-lg-12">
+                                <h2 class="gameHeader"><span class="winchance">10%</span> chance.  Win <span class="payout">5x</span> your bet if you guess correctly!</h2>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Your lucky number:</h3>    
+                                <input id="input10" class="lucknum" type="text" placeholder="1-10"></input>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Choose your bet:</h3>
+                                <button id="button10_1" class="btn btn-lg btn-play" data-inpid="input10" data-nval="10" value="0.01" onClick="buttonFunc(this.id)">0.01 ETH</button>
+                                <button id="button10_2" class="btn btn-lg btn-play" data-inpid="input10" data-nval="10" value="0.05" onClick="buttonFunc(this.id)">0.05 ETH</button>
+                                <button id="button10_3" class="btn btn-lg btn-play" data-inpid="input10" data-nval="10" value="0.10" onClick="buttonFunc(this.id)">0.10 ETH</button>
+                                <button id="button10_4" class="btn btn-lg btn-play" data-inpid="input10" data-nval="10" value="0.25" onClick="buttonFunc(this.id)">0.25 ETH</button>
+                                <button id="button10_5" class="btn btn-lg btn-play" data-inpid="input10" data-nval="10" value="0.50" onClick="buttonFunc(this.id)" hidden>0.50 ETH</button>
+                                <button id="button10_6" class="btn btn-lg btn-play" data-inpid="input10" data-nval="10" value="1.00" onClick="buttonFunc(this.id)" hidden>1.00 ETH</button>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Result:</h3>
+                                <div class="resultBox" id="resultBox10">
+                                    <div class="playPending" id="playPending10"></div>
+                                    <div class="playResult" id="playResult10"></div>
+                                    <div class="myProgress" id="myProgress10">
+                                        <div class="myBar" id="myBar10"></div>
+                                    </div>
+                                </div>
+                                <div class="belowResult">
+                                    <p class="pretxh" id="pretxh10"></p>
+                                    <a class="txh" id="txh10" target="_blank"></a>
+                                    <p class="resultText" id="resultText10"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ----------------------Slide--------------------------- -->
+
+            <div class="carousel-item">
+                <div class="container">
+                    
+                    <div class="carousel-caption d-md-block text-middle">
+                        <div id="error"></div>
+                        
+                        <!-- ------------ n=20 Game ------------ -->
+
+                        <!-- <div id="disabled">Coming soon!</div> -->
+                        <div class="row featurette">
+
+                            <div class="col col-lg-12">
+                                <h2 class="gameHeader"><span class="winchance">5%</span> chance.  Win <span class="payout">10x</span> your bet if you guess correctly!</h2>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Your lucky number:</h3>    
+                                <input id="input20" class="lucknum" type="text" placeholder="1-20"></input>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Choose your bet:</h3>
+                                <button id="button20_1" class="btn btn-lg btn-play" data-inpid="input20" data-nval="20" value="0.01" onClick="buttonFunc(this.id)">0.01 ETH</button>
+                                <button id="button20_2" class="btn btn-lg btn-play" data-inpid="input20" data-nval="20" value="0.05" onClick="buttonFunc(this.id)">0.05 ETH</button>
+                                <button id="button20_3" class="btn btn-lg btn-play" data-inpid="input20" data-nval="20" value="0.10" onClick="buttonFunc(this.id)">0.10 ETH</button>
+                                <button id="button20_4" class="btn btn-lg btn-play" data-inpid="input20" data-nval="20" value="0.25" onClick="buttonFunc(this.id)">0.25 ETH</button>
+                                <button id="button20_5" class="btn btn-lg btn-play" data-inpid="input20" data-nval="20" value="0.50" onClick="buttonFunc(this.id)" hidden>0.50 ETH</button>
+                                <button id="button20_6" class="btn btn-lg btn-play" data-inpid="input20" data-nval="20" value="1.00" onClick="buttonFunc(this.id)" hidden>1.00 ETH</button>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Result:</h3>
+                                <div class="resultBox" id="resultBox20">
+                                    <div class="playPending" id="playPending20"></div>
+                                    <div class="playResult" id="playResult20"></div>
+                                    <div class="myProgress" id="myProgress20">
+                                        <div class="myBar" id="myBar20"></div>
+                                    </div>
+                                </div>
+                                <div class="belowResult">
+                                    <p class="pretxh" id="pretxh20"></p>
+                                    <a class="txh" id="txh20" target="_blank"></a>
+                                    <p class="resultText" id="resultText20"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ----------------------Slide--------------------------- -->
+
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="carousel-caption d-md-block text-middle">
+                        <div id="error"></div>
+                        
+                        <!-- ------------ n=50 Game ------------ -->
+                        <div id="disabled">Coming soon!</div>
+                        <div class="row featurette disabled">
+                            
+                            <div class="col col-lg-12">
+                                <h2 class="gameHeader"><span class="winchance">2%</span> chance.  Win <span class="payout">25x</span> your bet if you guess correctly!</h2>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Your lucky number:</h3>    
+                                <input id="input50" class="lucknum" type="text" placeholder="1-50"></input>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Choose your bet:</h3>
+                                <button id="button50_1" class="btn btn-lg btn-play" data-inpid="input50" data-nval="50" value="0.01" onClick="buttonFunc(this.id)">0.01 ETH</button>
+                                <button id="button50_2" class="btn btn-lg btn-play" data-inpid="input50" data-nval="50" value="0.05" onClick="buttonFunc(this.id)">0.05 ETH</button>
+                                <button id="button50_3" class="btn btn-lg btn-play" data-inpid="input50" data-nval="50" value="0.10" onClick="buttonFunc(this.id)">0.10 ETH</button>
+                                <button id="button50_4" class="btn btn-lg btn-play" data-inpid="input50" data-nval="50" value="0.25" onClick="buttonFunc(this.id)">0.25 ETH</button>
+                                <button id="button50_5" class="btn btn-lg btn-play" data-inpid="input50" data-nval="50" value="0.50" onClick="buttonFunc(this.id)" hidden>0.50 ETH</button>
+                                <button id="button50_6" class="btn btn-lg btn-play" data-inpid="input50" data-nval="50" value="1.00" onClick="buttonFunc(this.id)" hidden>1.00 ETH</button>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Result:</h3>
+                                <div class="resultBox" id="resultBox50">
+                                    <div class="playPending" id="playPending50"></div>
+                                    <div class="playResult" id="playResult50"></div>
+                                    <div class="myProgress" id="myProgress50">
+                                        <div class="myBar" id="myBar50"></div>
+                                    </div>
+                                </div>
+                                <div class="belowResult">
+                                    <p class="pretxh" id="pretxh50"></p>
+                                    <a class="txh" id="txh50" target="_blank"></a>
+                                    <p class="resultText" id="resultText50"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ----------------------Slide--------------------------- -->
+
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="carousel-caption d-md-block text-middle">
+                        <div id="error"></div>
+                        
+                        <!-- ------------ n=100 Game ------------ -->
+                        <div id="disabled">Coming soon!</div>
+                        <div class="row featurette disabled">
+                            
+                            <div class="col col-lg-12">
+                                <h2 class="gameHeader"><span class="winchance">1%</span> chance.  Win <span class="payout">50x</span> your bet if you guess correctly!</h2>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Your lucky number:</h3>    
+                                <input id="input100" class="lucknum" type="text" placeholder="1-100"></input>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Choose your bet:</h3>
+                                <button id="button100_1" class="btn btn-lg btn-play" data-inpid="input100" data-nval="100" value="0.01" onClick="buttonFunc(this.id)">0.01 ETH</button>
+                                <button id="button100_2" class="btn btn-lg btn-play" data-inpid="input100" data-nval="100" value="0.05" onClick="buttonFunc(this.id)">0.05 ETH</button>
+                                <button id="button100_3" class="btn btn-lg btn-play" data-inpid="input100" data-nval="100" value="0.10" onClick="buttonFunc(this.id)">0.10 ETH</button>
+                                <button id="button100_4" class="btn btn-lg btn-play" data-inpid="input100" data-nval="100" value="0.25" onClick="buttonFunc(this.id)">0.25 ETH</button>
+                                <button id="button100_5" class="btn btn-lg btn-play" data-inpid="input100" data-nval="100" value="0.50" onClick="buttonFunc(this.id)" hidden>0.50 ETH</button>
+                                <button id="button100_6" class="btn btn-lg btn-play" data-inpid="input100" data-nval="100" value="1.00" onClick="buttonFunc(this.id)" hidden>1.00 ETH</button>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Result:</h3>
+                                <div class="resultBox" id="resultBox100">
+                                    <div class="playPending" id="playPending100"></div>
+                                    <div class="playResult" id="playResult100"></div>
+                                    <div class="myProgress" id="myProgress100">
+                                        <div class="myBar" id="myBar100"></div>
+                                    </div>
+                                </div>
+                                <div class="belowResult">
+                                    <p class="pretxh" id="pretxh100"></p>
+                                    <a class="txh" id="txh100" target="_blank"></a>
+                                    <p class="resultText" id="resultText100"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ----------------------Slide--------------------------- -->
+
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="carousel-caption d-md-block text-middle">
+                        <div id="error"></div>
+                        
+                        <!-- ------------ n=500 Game ------------ -->
+                        <div id="disabled">Coming soon!</div>
+                        <div class="row featurette disabled">
+                            
+                            <div class="col col-lg-12">
+                                <h2 class="gameHeader"><span class="winchance">0.2%</span> chance.  Win <span class="payout">250x</span> your bet if you guess correctly!</h2>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Your lucky number:</h3>    
+                                <input id="input500" class="lucknum" type="text" placeholder="1-500"></input>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Choose your bet:</h3>
+                                <button id="button500_1" class="btn btn-lg btn-play" data-inpid="input500" data-nval="500" value="0.01" onClick="buttonFunc(this.id)">0.01 ETH</button>
+                                <button id="button500_2" class="btn btn-lg btn-play" data-inpid="input500" data-nval="500" value="0.05" onClick="buttonFunc(this.id)">0.05 ETH</button>
+                                <button id="button500_3" class="btn btn-lg btn-play" data-inpid="input500" data-nval="500" value="0.10" onClick="buttonFunc(this.id)">0.10 ETH</button>
+                                <button id="button500_4" class="btn btn-lg btn-play" data-inpid="input500" data-nval="500" value="0.25" onClick="buttonFunc(this.id)">0.25 ETH</button>
+                                <button id="button500_5" class="btn btn-lg btn-play" data-inpid="input500" data-nval="500" value="0.50" onClick="buttonFunc(this.id)" hidden>0.50 ETH</button>
+                                <button id="button500_6" class="btn btn-lg btn-play" data-inpid="input500" data-nval="500" value="1.00" onClick="buttonFunc(this.id)" hidden>1.00 ETH</button>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Result:</h3>
+                                <div class="resultBox" id="resultBox500">
+                                    <div class="playPending" id="playPending500"></div>
+                                    <div class="playResult" id="playResult500"></div>
+                                    <div class="myProgress" id="myProgress500">
+                                        <div class="myBar" id="myBar500"></div>
+                                    </div>
+                                </div>
+                                <div class="belowResult">
+                                    <p class="pretxh" id="pretxh500"></p>
+                                    <a class="txh" id="txh500" target="_blank"></a>
+                                    <p class="resultText" id="resultText500"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ----------------------Slide--------------------------- -->
+
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="carousel-caption d-md-block text-middle">
+                        <div id="error"></div>
+                        
+                        <!-- ------------ n=1000 Game ------------ -->
+                       <div id="disabled">Coming soon!</div>
+                        <div class="row featurette disabled">
+                            
+                            <div class="col col-lg-12">
+                                <h2 class="gameHeader"><span class="winchance">0.1%</span> chance.  Win <span class="payout">500x</span> your bet if you guess correctly!</h2>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Your lucky number:</h3>    
+                                <input id="input1000" class="lucknum" type="text" placeholder="1-1000"></input>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Choose your bet:</h3>
+                                <button id="button1000_1" class="btn btn-lg btn-play" data-inpid="input1000" data-nval="1000" value="0.01" onClick="buttonFunc(this.id)">0.01 ETH</button>
+                                <button id="button1000_2" class="btn btn-lg btn-play" data-inpid="input1000" data-nval="1000" value="0.05" onClick="buttonFunc(this.id)">0.05 ETH</button>
+                                <button id="button1000_3" class="btn btn-lg btn-play" data-inpid="input1000" data-nval="1000" value="0.10" onClick="buttonFunc(this.id)">0.10 ETH</button>
+                                <button id="button1000_4" class="btn btn-lg btn-play" data-inpid="input1000" data-nval="1000" value="0.25" onClick="buttonFunc(this.id)">0.25 ETH</button>
+                                <button id="button1000_5" class="btn btn-lg btn-play" data-inpid="input1000" data-nval="1000" value="0.50" onClick="buttonFunc(this.id)" hidden>0.50 ETH</button>
+                                <button id="button1000_6" class="btn btn-lg btn-play" data-inpid="input1000" data-nval="1000" value="1.00" onClick="buttonFunc(this.id)" hidden>1.00 ETH</button>
+                            </div>
+                            <div class="col game-col">
+                                <h3>Result:</h3>
+                                <div class="resultBox" id="resultBox1000">
+                                    <div class="playPending" id="playPending1000"></div>
+                                    <div class="playResult" id="playResult1000"></div>
+                                    <div class="myProgress" id="myProgress1000">
+                                        <div class="myBar" id="myBar1000"></div>
+                                    </div>
+                                </div>
+                                <div class="belowResult">
+                                    <p class="pretxh" id="pretxh1000"></p>
+                                    <a class="txh" id="txh1000" target="_blank"></a>
+                                    <p class="resultText" id="resultText1000"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <!--
+            <div class="indicator-header">
+                <h3>Choose your game</h3>
+            </div>
+            -->
+            <ol class="carousel-indicators indicators-custom">
+                
+                <li data-target="#myCarousel" data-slide-to="0" class="active">50% Win <br> 1.5x Payout</li>
+                <li data-target="#myCarousel" data-slide-to="1">16.6% Win <br> 3x Payout</li>
+                <li data-target="#myCarousel" data-slide-to="2">10% Win <br> 5x Payout</li>
+                <li data-target="#myCarousel" data-slide-to="3">5% Win <br> 10x Payout</li>
+                <li data-target="#myCarousel" data-slide-to="4">2% Win <br> 25x Payout</li>
+                <li data-target="#myCarousel" data-slide-to="5">1% Win <br> 50x Payout</li>
+                <li data-target="#myCarousel" data-slide-to="6">0.2% Win <br> 250x Payout</li>
+                <li data-target="#myCarousel" data-slide-to="7">0.1% Win <br> 500x Payout</li>
+            </ol>
+
+        </div>            
+    </div>
+
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+        <hr id="howitworks" class="featurette-divider">
+
+        <h1>How it works</h1>
+        <p>No account needed.  Instant payouts.  A random number is generated using atmospheric noise.  If you guess it correctly, you win!  The random numbers are retrieved and winnings are processed automatically by smart contract in the Ethereum blockchain.  Using random numbers from atmospheric noise ensures that our numbers are truly random.  Smart contracts ensure that payouts are processed instantly.  No account needed to play.  For more details see the <a href=#faq>FAQ</a>.</p>
+
+
+        <hr id="latestnav" class="featurette-divider">
+        <h1>Latest</h1>
+        <ul class="nav nav-tabs nav-fill">
+            <li class="nav-item latest"><a class="nav-link active" data-toggle="tab" href="#latest">Plays</a></li>
+            <li class="nav-item latest"><a class="nav-link" data-toggle="tab" href="#menu1">Wins</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="latest" class="tab-pane active">
+                <div class="latestentries">
+                    <h2 class="featurette-heading"></h2>
+                    <div id="latestentries" class="table-responsive"></div>
+                </div>
+            </div>
+            <div id="menu1" class="tab-pane fade">
+                <div class="latestentries">
+                    <h2 class="featurette-heading"></h2>
+                    <div id="winnerlist" class="table-responsive"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <hr id="faq" class="featurette-divider">
+
+        <h1>FAQ</h1>
+
+        <div id="accordion" role="tablist" aria-multiselectable="true">
+
+
+            <div class="card">
+                <div class="card-header" role="tab" id="headingThree">
+                    <h5 class="mb-0">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            How do I play?
+                        </a>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="card-block">
+                        No account needed.  Simply choose a number and a bet amount.  In order to play you need to use a web3 enabled browser to interact with the Ethereum blockchain.  The easiest way to enable web3 is by adding the <a href="https://metamask.io/" target="_blank">MetaMask</a> extension to your browser.  You can also use the <a href="https://github.com/ethereum/mist" target="_blank">Ethereum Mist</a> browser or any other web3 enabled browser.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" role="tab" id="headingOne">
+                    <h5 class="mb-0">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            What is atmospheric noise?
+                        </a>
+                    </h5>
+                </div>
+                <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="card-block">
+                        Atmospheric noise is radio noise caused by natural atmospheric processes, primarily lightning discharges in thunderstorms. On a worldwide scale, there are about 40 lightning flashes per second – ≈3.5 million lightning discharges per day.  Read more about it on <a href="https://en.wikipedia.org/wiki/Atmospheric_noise" target="_blank">Wikipedia</a>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" role="tab" id="headingTwo">
+                    <h5 class="mb-0">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            What is Ethereum?
+                        </a>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="card-block">
+                        Ethereum is a  decentralized platform that runs smart contracts: applications that run exactly as programmed without any possibility of downtime, censorship, fraud or third party interference.  Read more about it on the <a href="https://www.ethereum.org/" target="_blank">Ethereum project website</a>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" role="tab" id="headingFive">
+                    <h5 class="mb-0">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            How does this actually work?
+                        </a>
+                    </h5>
+                </div>
+                <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+                    <div class="card-block">
+                        When you submit your lucky number your browser simultaneously requests a random number from random.org and submits this to the smart contract on the Ethereum blockchain.  When the contract receives these data, it requests a new psuedo random number from the Wolfram Alpha computing engine via oraclize.it and calculates another psuedo random number by taking the hash of the previously mined block in the Ethereum blockchain.  These three numbers are then multiplied together and reduced to an integer between one and ten by modulo operation.  The smart contract then compares your lucky number with this result and makes a payout if they match.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" role="tab" id="headingSix">
+                    <h5 class="mb-0">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            What is a true random number vs a psuedo random number?
+                        </a>
+                    </h5>
+                </div>
+                <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
+                    <div class="card-block">
+                        Read about it on Wikipedia here: <a href="https://en.wikipedia.org/wiki/Random_number_generation#.22True.22_vs._pseudo-random_numbers" target="_blank">True vs. Psuedo Random Numbers</a> 
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <hr id="disclaimer" class="featurette-divider">
+
+        <h1>Disclaimer</h1>
+        <p>If you suspect that spending crypto-currencies to guess random numbers generated by atmospheric noise is illegal in your jurisdiction, please close this website immediately. Please note that while the contract will live as long as the Ethereum blockchain, no warranty is given that this website will continue to exist or will continue to promote the contract. Under no circumstances will refunds or compensation be paid even if the contract steals all your money and/or shoots your dog. The author disclaims all liability for the operation of the contract which should be considered its own autonomous entity as far as permitted by law - it is your responsiblity to study its likely behaviour before interacting with it, including taking into account that the actual behaviour of the compiled EVM bytecode in a real eth/geth node may differ from the assumed behaviour based on the apparent intent of the solidity source code. By interacting with this website you agree to accept the conditions in this section as well as those listed at <a href="https://ethereum.org/agreement">ethereum.org/agreement.</a></p>
+    
+        <footer>
+            <br>
+            <p>&copy; 2017 Cosmic Dice</p>
+             
+            <p>Powered by: <a href="https://etherscan.io/" target="_blank"> Etherscan.io </a><strong>&middot;</strong><a href="https://www.ethereum.org/" target="_blank"> Ethereum.org </a><strong>&middot;</strong><a href="https://www.random.org/" target="_blank"> Random.org </a><strong>&middot;</strong><a href="http://www.oraclize.it/" target="_blank"> Oraclize.it</a></p>
+        </footer>
+    
+    </div>
+
+
+    <!-- Scripts -->
+
+    <script src="buttons.js"></script>
+    <script src="cd.js"></script>
+    <script src="tables.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <script src="moment.js"></script>
+    <script src="livestamp.min.js"></script>
+
+</body>
+</html>

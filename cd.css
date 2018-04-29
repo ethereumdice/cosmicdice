@@ -1,0 +1,348 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #5a5a5a;
+  }
+  
+  
+  /* NAVBAR
+  -------------------------------------------------- */
+  
+  .custom-nav {
+    margin-left: auto!important;
+    margin-right: 0!important;
+    white-space: nowrap;
+  }
+  
+  .navbar-brand{
+      font-size: 1.5rem;
+  }
+  
+  /* CUSTOM CONTENT
+  -------------------------------------------------- */
+
+  .userBox {
+    background-color: #777;
+    text-align: right;
+  }
+
+  .userDetails {
+    
+    color: #fff;
+  }
+
+  #howitworks{
+      visibility: hidden;
+      margin: 2rem 0rem;
+  }
+
+  .card-block{
+      padding: 1rem;
+  }
+
+  .lucknum {
+      height: 10rem;
+      width: 16rem;
+      vertical-align: middle;
+      font-size: 5rem;
+      text-align: center;
+  }
+
+  .btn-play {
+      height: 5rem;
+      width: 7rem;
+      vertical-align: middle;
+      margin: 0.2rem 0.1rem;
+      border: 1px solid grey;
+      background-color: lightgrey;
+      text-align: center;
+  }
+  
+  .txheader{
+      font-weight: bold;
+  }
+  
+  .latestentries{
+      text-align: center;
+      margin-bottom: 2rem;
+  }
+
+  .latest {
+    font-size: 1.7rem;
+  }
+
+  .game-col {
+    text-align: center;
+  }
+  
+  .resultBox {
+    border: 1px solid;
+    height: 10rem;
+    width: 16rem;
+    padding: 0.5rem;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .winResult {
+    background-color: #d4edda;
+  }
+
+  .loseResult {
+    background-color: lightpink;
+  }
+
+  .belowResult {
+    text-align: center;
+    width: 15rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0 auto;
+  }
+
+  .pretxh {
+    font-size: 1rem!important;
+    margin-bottom: 0!important;
+  }
+
+  .txh {
+
+    color: lightblue;
+    word-wrap: break-word;
+  }
+
+  .result {
+    width: auto;
+  }
+
+  .playPending {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+  }
+
+  .playResult {
+    font-size: 5rem;
+    text-align: center;
+    margin-top: 0.8rem;
+  }
+
+  .resultText {
+    font-size: 1.3rem!important;
+  }
+
+  .gameHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .myProgress {
+    width: 50%;
+    background-color: #ddd;
+    margin: 0.5rem auto;
+    visibility: hidden;
+  }
+  
+  .myBar {
+    width: 1%;
+    height: 30px;
+    background-color: #4CAF50;
+    visibility: hidden;
+  }
+
+  .disabled {
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  #disabled {
+    position: relative;
+    height: 0;
+    top: 5rem;
+    left:-3rem;
+    font-size: 8rem;
+    color: orange;
+    opacity: 0.8;
+    z-index: 100;
+    transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+  }
+
+  .winchance {
+    padding: 1rem 1.5rem;
+    background-color: #FFB347;
+    border-radius: 0.2rem;
+    display: inline-block;
+    margin: 0.1rem;
+  }
+
+  .payout {
+    padding: 1rem 1.5rem;
+    background-color: #85bb65;
+    border-radius: 0.2rem;
+    display: inline-block;
+    margin: 0.1rem;
+  }
+
+  .site-lead {
+    text-align: center;
+    background-color: #777;
+    padding: 3rem 3rem 2rem 3rem;
+    color: white;
+  }
+
+  .site-lead h1 {
+    font-size: 3rem;
+  }
+
+  .site-lead h2 {
+    font-size: 2.5rem;
+  }
+  
+  /* CUSTOMIZE THE CAROUSEL
+  -------------------------------------------------- */
+  
+  /* Carousel base class */
+  .carousel {
+    margin-bottom: 4rem;
+  }
+
+  /* Since positioning the image, we need to help out the caption */
+  .carousel-caption {
+    z-index: 10;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    top: auto;
+    position: relative;
+    
+  }
+
+  .carousel-inner {
+    overflow: inherit;
+  }
+  
+  /* Declare heights because of positioning of img element */
+  .carousel-item {
+    height: auto;
+    background-color: #777;
+  }
+  .carousel-item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 40rem;
+  }
+
+  .indicator-header {
+    text-align: center;
+    background-color: #777;
+    color: white;
+  }
+
+  .indicator-header h3 {
+    margin: 0;
+    padding: 1rem 0;
+  }
+  
+  .indicators-custom {
+    position: relative;
+    background-color: grey;
+    max-width: 100%;
+    list-style: none;
+    margin: 0;
+    bottom: auto;
+    display: block;
+    text-align: center;
+    padding:0.5rem 0;
+  }
+
+  .indicators-custom li {
+    text-indent: 0;
+    width: 8rem;
+    height: auto;
+    margin: 0.5rem;
+    text-align:center;
+    font-size: 1.1rem;
+    display: inline-block;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    background-color: lightsteelblue;
+    cursor: pointer;
+  }
+  
+  /* MARKETING CONTENT
+  -------------------------------------------------- */
+  
+  /* Center align the text within the three columns below the carousel */
+  .marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .marketing h2 {
+    font-weight: normal;
+  }
+  .marketing .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+  }
+  
+  
+  /* Featurettes
+  ------------------------- */
+
+  .featurette {
+    
+  }
+  
+  .featurette-divider {
+    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+  }
+  
+  /* Thin out the marketing headings */
+  .featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.05rem;
+  }
+  
+  
+  /* RESPONSIVE CSS
+  -------------------------------------------------- */
+  
+  @media (min-width: 40em) {
+    /* Bump up size of carousel content */
+    .carousel-caption p {
+      margin-bottom: 1.25rem;
+      font-size: 1.5rem;
+      line-height: 1.4;
+      
+    }
+  
+    .featurette-heading {
+      font-size: 50px;
+    }
+  }
+  
+  @media (min-width: 62em) {
+    .featurette-heading {
+      margin-top: 7rem;
+    }
+  }
+
+  @media (max-width: 62em) {
+    .featurette {
+      display: inline-block;
+    }
+
+    .game-col {
+      margin-top: 2rem;
+    }
+  }
+  
