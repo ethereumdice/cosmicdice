@@ -473,7 +473,7 @@
         <hr id="howitworks" class="featurette-divider">
 
         <h1>How it works</h1>
-        <p>No account needed.  Instant payouts.  A random number is generated using atmospheric noise.  If you guess it correctly, you win!  The random numbers are retrieved and winnings are processed automatically by smart contract in the Ethereum blockchain.  Using random numbers from atmospheric noise ensures that our numbers are truly random.  Smart contracts ensure that payouts are processed instantly.  No account needed to play.  For more details see the <a href=#faq>FAQ</a>.</p>
+        <p>A random number is generated using atmospheric noise.  If you guess it correctly, you win!  The random numbers are retrieved and winnings are processed automatically by smart contract in the Ethereum blockchain.  Using random numbers from atmospheric noise ensures that our numbers are truly random.  Smart contracts ensure that payouts are processed instantly.  No account needed to play.  For more details see the <a href=#faq>FAQ</a>.</p>
 
 
         <hr id="latestnav" class="featurette-divider">
@@ -561,7 +561,7 @@
                 </div>
                 <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
                     <div class="card-block">
-                        When you submit your lucky number your browser simultaneously requests a random number from random.org and submits this to the smart contract on the Ethereum blockchain.  When the contract receives these data, it requests a new psuedo random number from the Wolfram Alpha computing engine via oraclize.it and calculates another psuedo random number by taking the hash of the previously mined block in the Ethereum blockchain.  These three numbers are then multiplied together and reduced to an integer between one and ten by modulo operation.  The smart contract then compares your lucky number with this result and makes a payout if they match.
+                        When you submit your lucky number your browser simultaneously requests a random number from random.org and submits this to the smart contract on the Ethereum blockchain.  When the contract receives these data, it requests a new psuedo random number from the Wolfram Alpha computing engine via oraclize.it and calculates another psuedo random number by taking the hash of the timestamp in the Ethereum blockchain.  These three numbers are then multiplied together and reduced to an integer by modulo operation.  The smart contract then compares your lucky number with this result and makes a payout if they match.
                     </div>
                 </div>
             </div>
